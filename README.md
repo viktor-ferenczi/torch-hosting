@@ -7,7 +7,7 @@ Torch plugin useful for server hosting and maintenance.
 
 ### Features
 - Writes the current timestamp in ISO standard format into the **Instance/canary** file once every 20 seconds. Useful to detect if the instance is frozen.
-- Writes the Torch process's PID into the **Instance/pid** file once the session is loaded. Useful to identify the process corresponding to a given instance folder.
+- Writes the PID of the Torch process into the **Instance/pid** file once the session is loaded. Useful to identify the process corresponding to a given instance folder.
 
 ## Utilities
 
