@@ -87,6 +87,7 @@ if grep -q GenuineIntel </proc/cpuinfo; then
     echo "Intel CPU detected: Disabling Meltdown/Spectre protection for performance"
     echo
     sed -i /etc/default/grub -e 's@GRUB_CMDLINE_LINUX_DEFAULT="quiet"@GRUB_CMDLINE_LINUX_DEFAULT="quiet nopti nospectre_v1 nospectre_v2 nospec_store_bypass_disable intel_pstate=disable"@'
+    sed -i /etc/default/grub -e 's@GRUB_CMDLINE_LINUX_DEFAULT="vultrquiet"@GRUB_CMDLINE_LINUX_DEFAULT="vultrquiet nopti nospectre_v1 nospectre_v2 nospec_store_bypass_disable intel_pstate=disable"@'
     update-grub
 fi
 
@@ -108,6 +109,7 @@ if ! [[ -e /usr/bin/gpg-agent ]] || ! [[ -e /usr/games/steamcmd ]] || ! [[ -e /u
 fi
 
 if ! [[ -e /etc/bash_completion.d/python-argcomplete.sh ]]; then
+    mkdir -p /etc/bash_completion.d
     /usr/bin/activate-global-python-argcomplete3
 fi
 
